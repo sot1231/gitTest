@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script type="text/javascript" src="jQuery.js"></script>
+
+<script type="text/javascript">
+	$(function() {
+        var options = {
+                series: [{
+                name: 'Marine Sprite',
+                data: [44, 55, 41, 37, 22, 43, 21]
+              }, {
+                name: 'Striking Calf',
+                data: [53, 32, 33, 52, 13, 43, 32]
+              }, {
+                name: 'Tank Picture',
+                data: [12, 17, 11, 9, 15, 11, 20]
+              }, {
+                name: 'Bucket Slope',
+                data: [9, 7, 5, 8, 6, 9, 4]
+              }, {
+                name: 'Reborn Kid',
+                data: [25, 12, 19, 32, 25, 24, 10]
+              }],
+                chart: {
+                type: 'bar',
+                height: 350,
+                stacked: true,
+                stackType: '100%',
+                foreColor: '#373d3f'
+              },
+              plotOptions: {
+                bar: {
+                  horizontal: true,
+                },
+              },
+              title: {
+                text: 'year 계절별 날씨 비율',
+                align: 'center',
+                margin: 5,
+                floating: false,
+                style:{
+                	color: '#58BDFF',
+                	fontSize: '30px'
+                }
+              },
+              xaxis: {
+                categories: [2008, 2009, 2010, 2011, 2012, 2013, 2014],
+              },
+              yaxis: {
+              },
+              fill: {
+            	opacity: 0.8,
+                type: 'solid'
+              },
+              dataLabels: {
+            	  textAnchor: 'middle',
+            	  distributed: false,
+            	  style: {
+            	      fontSize: '13px',
+            	      fontFamily: 'Helvetica, Arial, sans-serif',
+            	      colors: ['#345e84', '#949bae', '#ffb549', '#febd89', '#ffac9b', '#f94bo2']
+            	  },
+            	  background: {
+            	    enabled: true,
+            	    foreColor: ['#345e84', '#949bae', '#ffb549', '#febd89', '#ffac9b', '#f94bo2'],
+            	    padding: 4,
+            	    borderRadius: 2,
+            	    borderWidth: 1,
+            	    opacity: 0.9,
+            	    dropShadow: {
+            	      enabled: false,
+            	      top: 1,
+            	      left: 1,
+            	      blur: 1,
+            	      color: '#000',
+            	      opacity: 0.45
+            	    }
+            	  },
+            	  dropShadow: {
+            	      enabled: false,
+            	      top: 1,
+            	      left: 1,
+            	      blur: 1,
+            	      color: '#000',
+            	      opacity: 0.45
+            	  }
+            	},
+              legend: {
+                position: 'bottom',
+                horizontalAlign: 'left',
+                offsetX: 10,
+                floating: false,
+                fontSize: '14px',
+                itemMargin: {
+                    horizontal: 20,
+                    vertical: 5
+                },
+              }
+              };
+
+              var chart = new ApexCharts(document.querySelector("#chart"), options);
+              chart.render();
+	});
+</script>
+</head>
+<body>
+	<div id="chart" style="width: 80%;"></div>
+</body>
+</html>
