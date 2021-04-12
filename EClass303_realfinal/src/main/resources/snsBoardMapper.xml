@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.passion.eclass303.snsboard.SNSBoardMapper">
+
+<!-- sns 총 게시글 갯수 세기 -->
+	<select id="getAllSNSCount" resultType="java.lang.Integer">
+		select count(*) from member_33, snsboard_33 where m_id=s_writer
+	</select>
+
+<!-- sns 게시글 가지고 오기 -->
+	<select id="getSNS" parameterType="com.passion.eclass303.snsboard.SNSStartEnd" resultType="com.passion.eclass303.snsboard.SNSBoard">
+		select *
+		from(
+		select rownum as rn, m_img, m_id,
+		s_content,
+		s_date, s_num
+		from(
+		select * from member_33, snsboard_33
+		where m_id =
+		s_writer and
+		( s_content like '%'||#{snsSearch}||'%' or m_id
+		like
+		'%'||#{snsSearch}||'%')
+		order by s_date desc
+		)
+		)
+		where rn &gt; =#{start}
+		and
+		rn &lt; =#{end}
+	</select>
+
+<!-- sns 검색한 게시글 갯수 세기 -->
+	<select id="getSearchSNSCount" parameterType="com.passion.eclass303.snsboard.SNSStartEnd" resultType="java.lang.Integer">
+		select count(*) from member_33, snsboard_33
+		where m_id =
+		s_writer
+		and (s_content like '%'||#{snsSearch}||'%' or m_id like
+		'%'||#{snsSearch}||'%')
+	</select>
+
+<!-- sns 게시글 글쓰기 -->
+	<insert id="writeSNSContent" parameterType="com.passion.eclass303.snsboard.SNSBoard">
+		insert into snsboard_33 values(sb_seq.nextval, #{m_id}, sysdate, #{s_content})
+	</insert>
+
+<!-- sns 게시글 수정하기 -->
+	<update id="updateSNS" parameterType="com.passion.eclass303.snsboard.SNSBoard">
+		update snsboard_33 set s_content=#{s_content} where s_num=#{s_num}
+	</update>
+
+<!-- sns 게시글 삭제하기 -->
+	<delete id="deleteSNS" parameterType="com.passion.eclass303.snsboard.SNSBoard">
+		delete from snsboard_33 where s_num=#{s_num}
+	</delete>
+
+<!-- sns 댓글 가지고오기 -->
+	<select id="getReplys" parameterType="com.passion.eclass303.snsboard.SNSBoard" resultType="com.passion.eclass303.snsboard.SNSReply">
+		select * from snsboard_reply_33 where sr_s_num = #{s_num} order by sr_date
+	</select>
+
+<!-- sns 댓글 쓰기 -->
+	<insert id="writeReply" parameterType="com.passion.eclass303.snsboard.SNSReply">
+		insert into snsboard_reply_33 values(sb_r_req.nextval, #{sr_s_num}, #{sr_writer}, #{sr_reply}, sysdate )
+	</insert>
+
+<!-- sns 댓글 삭제하기 -->
+	<delete id="deleteSNSReply" parameterType="com.passion.eclass303.snsboard.SNSReply"> 
+		delete from snsboard_reply_33 where sr_num=#{sr_num}
+	</delete>
+</mapper>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.passion.eclass303.homework.HomeworkMapper">
+	
+	<!-- 전체 게시글 갯수 가져오기 -->
+	<select id="getAllHomeworkCount" resultType="java.lang.Integer">
+		select count(*)
+		from
+		homework_33_2021f
+	</select>
+	
+	<!--  검색어와 카테고리을 조건으로 게시글 갯수 가져오기  -->
+	<select id="getHomeworkCount"
+		parameterType="com.passion.eclass303.homework.HomeworkSelector"
+		resultType="java.lang.Integer">
+		select count(*)
+		from homework_33_2021f
+		where h_content like '%'||#{search}||'%' and h_role = #{category}
+	</select>
+	
+	<!--  검색어 조건으로 게시글 갯수 가져오기  -->
+	<select id="getHomeworkCount2"
+		parameterType="com.passion.eclass303.homework.HomeworkSelector"
+		resultType="java.lang.Integer">
+		select count(*)
+		from homework_33_2021f
+		where h_content like '%'||#{search}||'%'
+	</select>
+	<!--  검색어와 카테고리를 조건으로 게시글 가져오기  -->
+	<select id="getHomework"
+		parameterType="com.passion.eclass303.homework.HomeworkSelector"
+		resultType="com.passion.eclass303.homework.Homework">
+		select * from 
+		(select rownum as rn, h_seq, h_writer, h_date, h_startdate, h_enddate, 
+		h_title,h_content, h_file, h_role
+		from (select * from homework_33_2021f 
+		where h_title like '%'||#{search}||'%' and h_role = #{category} 
+		order by h_seq))
+		where rn &gt;= #{start} and rn &lt;= #{end}
+	</select>
+	
+	<!--  검색어 조건으로 게시글 가져오기  -->
+	<select id="getHomework2"
+		parameterType="com.passion.eclass303.homework.HomeworkSelector"
+		resultType="com.passion.eclass303.homework.Homework">
+		select * from 
+		(select rownum as rn, h_seq, h_writer, h_date, h_startdate, h_enddate, 
+		h_title,h_content, h_file, h_role
+		from (select * from homework_33_2021f 
+		where h_title like '%'||#{search}||'%' order by h_role))
+		where rn &gt;= #{start} and rn &lt;= #{end}
+	</select>
+	<!--  선택된 게시글 정보 모두 가져오기  -->
+	<select id="selectHomeworkDetail"
+		parameterType="com.passion.eclass303.homework.Homework"
+		resultType="com.passion.eclass303.homework.Homework">
+		select * from homework_33_2021f where h_seq = #{h_seq}
+	</select>
+	
+	<!--  과제 게시글 등록하기  -->
+	<insert id="regHomework"
+		parameterType="com.passion.eclass303.homework.Homework">
+		insert into homework_33_2021f
+		values(homework_33_2021f_seq.nextval, #{h_writer}, #{h_date}, #{h_startdate},
+		#{h_enddate}, #{h_title}, #{h_content}, #{h_file}, #{h_role})
+	</insert>
+	
+	<!--  과제 게시글 수정하기  -->
+	<update id="updateHomework"
+		parameterType="com.passion.eclass303.homework.Homework">
+		update homework_33_2021f 
+		set h_writer = #{h_writer}, 
+		h_date = #{h_date}, 
+		h_startdate = #{h_startdate}, 
+		h_enddate = #{h_enddate}, 
+		h_title = #{h_title}, 
+		h_content = #{h_content}, 
+		h_file = #{h_file}, 
+		h_role = #{h_role} 
+		where h_seq = #{h_seq}
+	</update>
+	
+	<!--  과제 게시글 삭제하기  -->
+	<delete id="deleteHomework"
+		parameterType="com.passion.eclass303.homework.Homework">
+		delete from homework_33_2021f where h_seq = #{h_seq}
+	</delete>
+
+</mapper>

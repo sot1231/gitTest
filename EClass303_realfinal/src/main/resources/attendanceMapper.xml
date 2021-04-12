@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.passion.eclass303.attendance.AttendanceMapper">
+
+	<insert id="checkAttendance"
+		parameterType="com.passion.eclass303.attendance.Attendance">
+		insert into attend_33 values(attend_33_seq.nextval,
+		#{a_id},
+		to_date(sysdate, 'yy-mm-dd'), 'o')
+	</insert>
+
+	<select id="selectAttendance"
+		parameterType="com.passion.eclass303.attendance.Attendance"
+		resultType="com.passion.eclass303.attendance.Attendance">
+		select * from attend_33 where a_id = #{a_id} and a_date =
+		to_date(sysdate,'yy-mm-dd')
+	</select>
+
+	<select id="getAttendanceDataCount"
+		parameterType="com.passion.eclass303.attendance.Attendance"
+		resultType="java.lang.Integer">
+		select count(*) from attend_33 where a_date = #{a_date} and
+		a_id = #{a_id}
+	</select>
+
+	<select id="getAttendanceCount" parameterType="java.util.Date"
+		resultType="java.lang.Integer">
+		select count(*) from attend_33 where a_date =
+		#{attendanceDay}
+	</select>
+
+	<select id="getAllMemberCount" resultType="java.lang.Integer">
+		select count(*) from
+		member_33 where m_role = 's'
+	</select>
+
+
+
+	<select id="NotExistMembers" parameterType="java.util.Date"
+		resultType="com.passion.eclass303.member.Member">
+
+		select m_name from MEMBER_33 where not exists (
+		select distinct a_id from ATTEND_33 where m_id = a_id and a_date = #{a_date}
+		) and m_role !='t'
+
+	</select>
+
+
+
+
+
+</mapper>

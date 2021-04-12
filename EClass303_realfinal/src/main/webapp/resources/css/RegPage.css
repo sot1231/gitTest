@@ -1,0 +1,123 @@
+@charset "UTF-8";
+
+/* 회원가입 페이지 */
+#memberRegTbl {
+	width: 50%;
+	padding: 10px;
+}
+
+#memberRegTbl th {
+	font-size: 15pt;
+	font-weight: 600;
+	padding: 20px;
+}
+
+#memberRegTbl td {
+	width: 50%;
+	padding-top: 5px;
+}
+
+#memberRegTbl button {
+	font-size: 13pt;
+	font-weight: 600;
+}
+
+#regBtnArea {
+	padding-top: 30px;
+}
+
+/* 메일인증 관련 css */
+#mail_check_input_box_false {
+	background-color: white;
+}
+
+#mail_check_input_box_true {
+	background-color: white;
+}
+
+.correct {
+	color: green;
+}
+
+.incorrect {
+	color: red;
+}
+
+/* id, pw 찾기 */
+#findTbl {
+	margin-top: 30px;
+	width: 60%;
+}
+
+.findTitle {
+	padding: 20px;
+	font-size: 14pt;
+	background-color: #FFF176;
+}
+
+.findIDs {
+	background-color: #FFF59D;
+}
+
+#findIDTbl {
+	padding: 20px;
+	width: 100%;
+	margin-right: auto;
+	margin-left: auto;
+	width: 100%;
+}
+
+#findIDTbl td {
+	padding: 10px;
+}
+
+#findIDTbl a {
+	font-size: 13pt;
+	font-weight: 600;
+}
+
+#ResultID {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+#ResultID a {
+	font-size: 16pt;
+	font-weight: 600;
+}
+
+/* PW 찾기 */
+#findPWTitle {
+	padding: 20px;
+	font-size: 14pt;
+	background-color: #DCE775;
+}
+
+#findPWTbl {
+	padding: 20px;
+	width: 100%;
+	margin-right: auto;
+	margin-left: auto;
+	width: 100%;
+}
+
+#findPWTbl td {
+	padding: 10px;
+}
+
+#findPWTbl a {
+	font-size: 13pt;
+	font-weight: 600;
+}
+
+.findPW {
+	background-color: #E6EE9C;
+}
+
+#findTbl button{
+	font-size: 12pt;
+	font-weight: 600;
+	height: 30px;
+	width: 150px;
+}
+

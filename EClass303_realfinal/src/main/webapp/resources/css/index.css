@@ -1,0 +1,92 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: "a";
+	src: url("a.ttf");
+}
+/* 폰트 초기화 */
+body, input, textarea, select, button, table {
+	font-family: "a";
+}
+
+#indexTbl {
+	font-family: "a";
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #F1F8E9;
+}
+
+#titleArea {
+	padding-top: 20px;
+	font-size: 20pt;
+	font-weight: 700;
+}
+
+#resultArea {
+	height: 20px;
+	color: red;
+	font-size: 11pt;
+	padding-right: 50px;
+}
+
+input {
+	font-family: "a";
+}
+
+select {
+	font-family: "a";
+	font-size: 10pt;
+	height: 22px;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+button {
+	font-family: "a";
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+#menuArea {
+	padding-top: 20px;
+	padding-right: 30px;
+}
+
+.menuIcon {
+	width: 40px;
+	height: 40px;
+	padding-right: 20px;
+	cursor: pointer;
+}
+
+#LoginArea {
+	padding-top: 10px;
+	padding-right: 20px;
+}
+
+#LoginArea  input {
+	font-family: "a";
+	width: 80px;
+}
+
+#LoginArea  button {
+	font-size: 11pt;
+}
+
+#LoginArea  button:hover {
+	color: green;
+}
+
+#loginTbl {
+	margin-right: 20px;
+}
+
+#contentsArea {
+	padding-top: 15px;
+	background-color: white;
+}

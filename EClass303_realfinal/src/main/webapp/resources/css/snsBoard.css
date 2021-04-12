@@ -1,0 +1,131 @@
+@charset "UTF-8";
+
+/* 페이지 전환 버튼 */
+#leftPage {
+	position: fixed;
+	left: 80px;
+	top: 200px;
+	width: 150px;
+	height: 550px;
+	cursor: pointer;
+}
+
+#rightPage {
+	position: fixed;
+	right: 0px;
+	top: 200px;
+	width: 150px;
+	height: 550px;
+	cursor: pointer;
+}
+
+/* 메시지 입력 Area */
+#wrtieSns {
+	width: 60%;
+	background-color: #FFF59D;
+	border-radius: 30px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+#wrtieSns textarea {
+	width: 80%;
+	height: 50px;
+	font-family: "a";
+	border: #FFF59D solid 4px;
+	height: 100px;
+}
+
+#snsTextarea {
+	border-radius: 30px;
+	width: 80%;
+}
+
+#wrtieSns button {
+	font-size: 12pt;
+	font-weight: 600;
+}
+
+/* 찾기 */
+#snsSearchTbl {
+	margin-top: 10px;
+}
+
+#snsSearchTbl button {
+	font-size: 11pt;
+	font-weight: 600;
+	padding-left: 20px;
+}
+
+/* sns 글 */
+#sns {
+	width: 70%;
+}
+
+.snsContents {
+	width: 80%;
+	margin-top: 15px;
+	border: #FFE082 solid 1px;
+}
+
+.snsContents img {
+	width: 50px;
+	height: 50px;
+}
+
+#snsWriter {
+	font-weight: 600;
+	font-size: 13pt;
+}
+
+#snsWriter img {
+	padding-left: 30px;
+	padding-right: 20px;
+	padding-top: 10px;
+}
+
+#snsWriteTime {
+	padding-left: 30px;
+	font-size: 10pt;
+}
+
+#snsTxt {
+	padding-top: 10px;
+	padding-bottom: 30px;
+	font-weight: 600;
+	font-size: 15pt;
+}
+
+#snsUpdate {
+	width: 85%;
+}
+
+.snsUpdateDelete button {
+	font-size: 13pt;
+	color: #424242;
+	cursor: pointer;
+	padding-bottom: 10px;
+	cursor: pointer;
+}
+
+/* 댓글 */
+.snsRelyArea {
+	font-size: 11pt;
+	padding-top: 15px;
+	padding-right: 15px;
+}
+
+#writeReply {
+	padding-top: 20px;
+	padding-bottom: 10px;
+}
+
+#replyWrite {
+	margin-top: 10px;
+	width: 250px;
+}
+
+.replyDate {
+	font-size: 10pt;
+	color: #424242;
+}

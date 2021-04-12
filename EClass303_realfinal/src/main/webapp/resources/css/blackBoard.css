@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+body {
+	margin: 0px;
+	padding: 0px;
+}
+
+#paper {
+	background-color: #1B5E20;
+}
+
+#blackBoardTbl{
+	margin-top: 20px;
+}
+
+#blackBoardTbl th{
+	font-size: 17pt;
+	font-weight: 600;
+	padding-bottom: 20px;
+}
+
+#bruchColorInput{
+	font-size: 12pt;
+	width: 100px;
+	text-align: center;
+}
+
+#bbNotice{
+	font-size: 12pt;
+	color: navy;
+}
+
