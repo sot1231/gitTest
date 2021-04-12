@@ -26,10 +26,6 @@ public class AttendanceController {
 			ADao.makeSessionAttendance(request, ad);
 			ADao.makeDateArea(request);
 			TokenManager.makeToken(request);
-			
-			
-			
-			System.out.println("ㅁㄴㅇㅁ");
 			request.setAttribute("contentPage","attendance/attendance.jsp");
 			return "index";
 		}
